@@ -45,4 +45,19 @@ Pusimos a prueba ambos métodos con expresiones cada vez más largas para ver en
 
 Al graficar esto, la diferencia es una locura. Mientras que Bison se mantiene como una línea recta (eficiencia lineal), la curva de CYK se dispara hacia arriba. Esto demuestra por qué en el mundo real usamos herramientas como Bison: procesar 1,500 elementos en 0.06 ms frente a esperar 3 minutos marca la diferencia entre un programa que funciona y uno que se queda congelado.
 
-![GRAFICA1](COMPARACION/grafica_rendimi.jpeg)
+**ANALISIS GRAFICAS**
+
+Gráfica de Escala Lineal: El impacto real del tiempoEn esta primera gráfica podemos observar el comportamiento de los algoritmos tal cual lo experimenta el usuario. Es la representación visual de lo que llamamos la "curva del apocalipsis" para el método CYK. Mientras que la línea azul de Bison permanece completamente plana y pegada al eje horizontal, la línea roja de CYK se dispara hacia arriba en una curva agresiva. Esto deja claro que, a medida que la expresión crece, el esfuerzo del procesador no sube un poquito, sino que se multiplica exponencialmente. Es la prueba definitiva de que un algoritmo de complejidad $O(n^3)$ se vuelve inmanejable en cuanto pasamos de unos pocos cientos de elementos.
+
+![Gráfica Rendimiento](COMPARACION/grafica_rendimiento.png)
+
+Gráfica de Escala Logarítmica: La segunda gráfica utiliza una escala logarítmica en el eje vertical para poder comparar ambos métodos de forma justa, ya que en la gráfica anterior la velocidad de Bison era tan alta que su línea prácticamente desaparecía. Al usar potencias de 10 en el eje del tiempo, finalmente podemos ver el trabajo de Bison como una línea recta constante muy por debajo de la competencia. Por su parte, la rampa ascendente de CYK demuestra que cada vez que añadimos tokens a la entrada, la brecha de rendimiento se vuelve miles de veces más grande. Esta visualización es fundamental para entender que, aunque ambos están procesando la misma información, la eficiencia estructural de Bison es órdenes de magnitud superior.
+
+![Gráfica Final](COMPARACION/grafica_final.png)
+
+
+**CONCLUCIONES**
+
+La comparativa demuestra que la diferencia entre la eficiencia lineal y la cúbica es abismal en la práctica. Mientras que Bison procesó 1,500 elementos en apenas 0.06 ms, al algoritmo CYK le tomó más de 3 minutos completar la misma tarea. Esto confirma que para cualquier compilador moderno, el análisis lineal es la única opción viable, ya que esperar minutos por procesar unas cuantas líneas de código sería inaceptable en un entorno real.
+
+Además, el uso de árboles sintácticos permitió validar que la velocidad de Bison no sacrifica la precisión, respetando correctamente la jerarquía y prioridad de los operadores. En conclusión, este trabajo resalta por qué herramientas industriales como Flex y Bison siguen siendo el estándar: su capacidad para manejar grandes volúmenes de datos con un impacto mínimo en el procesador las hace piezas fundamentales de la computación actual.
