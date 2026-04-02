@@ -41,4 +41,5 @@ Este script es el cerebro de las pruebas. Aquí programamos a mano el Algoritmo 
 
 Pusimos a prueba ambos métodos con expresiones cada vez más largas para ver en qué punto el algoritmo CYK ($O(n^3)$) empezaba a sufrir. Los resultados en la terminal de Ubuntu son claros:
 
+![EJECUCION](IMAG/EJECUCION.png)
 
