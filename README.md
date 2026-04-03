@@ -47,7 +47,7 @@ Al graficar esto, la diferencia es una locura. Mientras que Bison se mantiene co
 
 No todo es velocidad; el consumo de recursos también es crítico. Gracias al monitoreo con psutil, comprobamos que CYK requiere una cantidad de memoria significativamente mayor debido a la matriz de programación dinámica que debe construir en RAM. Mientras que Bison utiliza una pila optimizada con un consumo de memoria casi plano, CYK muestra un incremento cuadrático en el uso de megabytes, lo que podría llevar al agotamiento de recursos en dispositivos con hardware limitado.
 
-
+![RAM](IMAG/MemoriaRAM.png)
 
 **ANALISIS GRAFICAS**
 
@@ -59,9 +59,10 @@ Gráfica de Escala Logarítmica: La segunda gráfica utiliza una escala logarít
 
 ![Gráfica Final](COMPARACION/grafica_final.png)
 
+el manejo de recursos también es clave. En esta gráfica se observa cómo el algoritmo CYK demanda cada vez más RAM a medida que la expresión crece. Esto ocurre porque su lógica de programación dinámica necesita construir una matriz gigante en la memoria para funcionar, lo que genera un costo de almacenamiento elevado y poco eficiente.
 
+Por el contrario, Bison mantiene un consumo de memoria casi plano y extremadamente bajo. Al utilizar una arquitectura basada en una pila optimizada, procesa los tokens de forma ligera sin saturar el sistema. Mientras que CYK "pesa" más con cada nuevo dato, Bison demuestra ser una solución robusta y eficiente, ideal para procesar grandes volúmenes de información con el mínimo de recursos.
 
-No todo es velocidad; el consumo de recursos también es crítico. Gracias al monitoreo con psutil, comprobamos que CYK requiere una cantidad de memoria significativamente mayor debido a la matriz de programación dinámica que debe construir en RAM. Mientras que Bison utiliza una pila optimizada con un consumo de memoria casi plano, CYK muestra un incremento cuadrático en el uso de megabytes, lo que podría llevar al agotamiento de recursos en dispositivos con hardware limitado.
 
 
 **CONCLUCIONES**
