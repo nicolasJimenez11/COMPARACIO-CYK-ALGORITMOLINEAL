@@ -39,11 +39,15 @@ Este script es el cerebro de las pruebas. Aquí programamos a mano el Algoritmo 
 
 **RESULTADOS Y PRUEBA**
 
-Pusimos a prueba ambos métodos con expresiones cada vez más largas para ver en qué punto el algoritmo CYK ($O(n^3)$) empezaba a sufrir. Los resultados en la terminal de Ubuntu son claros:
+Pusimos a prueba ambos métodos con expresiones cada vez más largas para ver en qué punto el algoritmo CYK $$(O(n^3))$$ empezaba a sufrir. Los resultados en la terminal de Ubuntu son claros:
 
-![EJECUCION](IMAG/EJECUCION.jpeg)
+![EJECUCION](IMAG/EJECUCIONRAM.png)
 
 Al graficar esto, la diferencia es una locura. Mientras que Bison se mantiene como una línea recta (eficiencia lineal), la curva de CYK se dispara hacia arriba. Esto demuestra por qué en el mundo real usamos herramientas como Bison: procesar 1,500 elementos en 0.06 ms frente a esperar 3 minutos marca la diferencia entre un programa que funciona y uno que se queda congelado.
+
+No todo es velocidad; el consumo de recursos también es crítico. Gracias al monitoreo con psutil, comprobamos que CYK requiere una cantidad de memoria significativamente mayor debido a la matriz de programación dinámica que debe construir en RAM. Mientras que Bison utiliza una pila optimizada con un consumo de memoria casi plano, CYK muestra un incremento cuadrático en el uso de megabytes, lo que podría llevar al agotamiento de recursos en dispositivos con hardware limitado.
+
+
 
 **ANALISIS GRAFICAS**
 
@@ -54,6 +58,10 @@ Gráfica de Escala Lineal: El impacto real del tiempoEn esta primera gráfica po
 Gráfica de Escala Logarítmica: La segunda gráfica utiliza una escala logarítmica en el eje vertical para poder comparar ambos métodos de forma justa, ya que en la gráfica anterior la velocidad de Bison era tan alta que su línea prácticamente desaparecía. Al usar potencias de 10 en el eje del tiempo, finalmente podemos ver el trabajo de Bison como una línea recta constante muy por debajo de la competencia. Por su parte, la rampa ascendente de CYK demuestra que cada vez que añadimos tokens a la entrada, la brecha de rendimiento se vuelve miles de veces más grande. Esta visualización es fundamental para entender que, aunque ambos están procesando la misma información, la eficiencia estructural de Bison es órdenes de magnitud superior.
 
 ![Gráfica Final](COMPARACION/grafica_final.png)
+
+
+
+No todo es velocidad; el consumo de recursos también es crítico. Gracias al monitoreo con psutil, comprobamos que CYK requiere una cantidad de memoria significativamente mayor debido a la matriz de programación dinámica que debe construir en RAM. Mientras que Bison utiliza una pila optimizada con un consumo de memoria casi plano, CYK muestra un incremento cuadrático en el uso de megabytes, lo que podría llevar al agotamiento de recursos en dispositivos con hardware limitado.
 
 
 **CONCLUCIONES**
