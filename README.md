@@ -63,10 +63,11 @@ el manejo de recursos también es clave. En esta gráfica se observa cómo el al
 
 Por el contrario, Bison mantiene un consumo de memoria casi plano y extremadamente bajo. Al utilizar una arquitectura basada en una pila optimizada, procesa los tokens de forma ligera sin saturar el sistema. Mientras que CYK "pesa" más con cada nuevo dato, Bison demuestra ser una solución robusta y eficiente, ideal para procesar grandes volúmenes de información con el mínimo de recursos.
 
+![GraficaRAM](COMPARACION/comparativa_memoria.png)
 
 
 **CONCLUCIONES**
 
-La comparativa demuestra que la diferencia entre la eficiencia lineal y la cúbica es abismal en la práctica. Mientras que Bison procesó 1,500 elementos en apenas 0.06 ms, al algoritmo CYK le tomó más de 3 minutos completar la misma tarea. Esto confirma que para cualquier compilador moderno, el análisis lineal es la única opción viable, ya que esperar minutos por procesar unas cuantas líneas de código sería inaceptable en un entorno real.
+El trabajo deja claro que la eficiencia algorítmica no es solo teoría, sino algo que impacta directamente el hardware. Mientras que Bison procesó 1,599 elementos en apenas 0.09 ms, al algoritmo CYK le tomó más de 3 minutos completar la misma tarea. Esto confirma que, para cualquier compilador moderno, el análisis lineal es la única opción real para no dejar el sistema congelado.
 
-Además, el uso de árboles sintácticos permitió validar que la velocidad de Bison no sacrifica la precisión, respetando correctamente la jerarquía y prioridad de los operadores. En conclusión, este trabajo resalta por qué herramientas industriales como Flex y Bison siguen siendo el estándar: su capacidad para manejar grandes volúmenes de datos con un impacto mínimo en el procesador las hace piezas fundamentales de la computación actual.
+Además, al medir la memoria, confirmamos que CYK es un "glotón" de recursos debido a su matriz de programación dinámica, mientras que Bison se mantiene ligero usando una pila optimizada. En resumen, este proyecto demuestra por qué herramientas como Flex y Bison siguen siendo el estándar: logran procesar volúmenes masivos de datos con una precisión exacta y un impacto mínimo en el procesador y la RAM.
